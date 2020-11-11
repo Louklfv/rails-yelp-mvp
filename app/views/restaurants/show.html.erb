@@ -1,0 +1,11 @@
+<h1>Restaurant name: <%= @restaurant.name %></h1>
+<h3>Address: <%= @restaurant.address %></h3>
+<h3>Category: <%= @restaurant.category %></h3>
+<h3>Reviews: <%= link_to "➕", new_restaurant_review_path(@restaurant) %></h3>
+<ol>
+ <% @restaurant.reviews.each do |review| %>
+  <li><%= review.content %> | <%= link_to "🗑", review_path(review), method: :delete, data: { confirm: "Are you sure?" }%></li>
+ <% end %>
+</ol>
+<h4><%= link_to "⬅️ Back to all restaurants" ,restaurants_path %></h4>
+
